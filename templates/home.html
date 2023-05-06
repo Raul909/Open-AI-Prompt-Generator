@@ -13,13 +13,72 @@
             background-position: center center;
         }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .form_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* border: 2px solid black; */
+            width: 75%;
+            height: 70vh;
+            backdrop-filter: blur(30px);
+        }
+
+        .heading {
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 40px;
+            color: #2E3840;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form label {
+            font-size: 20px;
+            width: 100%;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        form textarea {
+            background-color: rgba(240, 240, 240, 0.3) !important;
+            border: 3px solid #9BA4B5 !important;
+        }
+
+        form button {
+            border: none !important;
+            background-color: #2E3840 !important;
+        }
+
+        form button:hover {
+            background-color: #787f8c !important;
+        }
+
+
         /* Set the background image size for smaller screens */
         @media (max-width: 767px) {
             body {
-                background-size: no-repeat;
+                background-repeat: no-repeat;
                 background-position: center center;
                 background-size: auto;
-                background-size:
+                background-size: 100;
+            }
+
+            .heading {
+                color: white !important;
             }
         }
 
@@ -29,6 +88,7 @@
             body {
                 background-attachment: fixed;
             }
+
         }
 
         @media only screen and (min-width: 992px) {
