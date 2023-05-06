@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>OpenAI Prompt Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("/static/background_html.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        /* Set the background image size for smaller screens */
+        @media (max-width: 767px) {
+            body {
+                background-size: 100% 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* Tablets and iPads */
+            body {
+                background-attachment: fixed;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+
+            /* Large screens */
+            body {
+                background-position: center top;
+            }
+        }
+    </style>
 </head>
-<body style="background-image: url('/static/background_html.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+
+<body>
     <div class="container">
         <h1 class="mt-5">OpenAI Prompt Generator</h1>
         <form action="{{ url_for('results') }}" method="POST">
@@ -13,8 +46,20 @@
                 <label for="prompt">Enter a prompt:</label>
                 <textarea class="form-control" id="prompt" name="prompt" rows="5"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="myButton" type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <script>
+        // Select the button element by its id
+        const myButton = document.getElementById("myButton");
+
+        // Add an event listener to the button for the "click" event
+        myButton.addEventListener("click", () => {
+            // Change the button's background color to grey
+            myButton.style.backgroundColor = "grey";
+        });
+    </script>
+
 </body>
+
 </html>
