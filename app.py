@@ -1,16 +1,17 @@
+import openai
+import logging
 from flask import Flask, render_template, request, send_from_directory
 from flask_caching import Cache
-import logging
-import openai
-
+from openai_api import openai_api
 
 # logging.basicConfig(filename='app.log', level=logging.DEBUG)
 
 app = Flask(__name__, template_folder="templates")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
+openai.api_key = "YOUR_API_KEY"
 
-openai.api_key = "ENTER_API_KEY"
+app.register_blueprint(openai_api, url_prefix='/openai')
 
 
 @app.route("/")
@@ -28,7 +29,7 @@ def results():
     else:
         try:
             response = openai.Completion.create(
-                engine="text-davinci-002",
+                engine="davinci",
                 prompt=prompt,
                 max_tokens=50
             )
