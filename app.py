@@ -3,11 +3,14 @@ from flask_caching import Cache
 import logging
 import openai
 
+
+# logging.basicConfig(filename='app.log', level=logging.DEBUG)
+
 app = Flask(__name__, template_folder="templates")
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 
-openai.api_key = "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"
+openai.api_key = "ENTER_API_KEY"
 
 
 @app.route("/")
